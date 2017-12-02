@@ -80,6 +80,13 @@ material_page(
   ),
   material_side_nav_tab_content(
     side_nav_tab_id = "code",
-    tags$iframe(src = "https://github.com/ericrayanderson/shinymaterial_dashboard/blob/master/server.R#L1")
+    material_row(
+      material_column(
+        width = 4,
+        offset = 1,
+        br(),
+        git_refs()
+      )
+    )
   )
 )

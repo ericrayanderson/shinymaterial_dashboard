@@ -13,13 +13,11 @@ server <- function(input, output, session) {
   
   output$housing_plot <- renderPlot({
     
-    if(input$from_year >= input$to_year){
-      return(NULL)
-    }
+    if(input$from_year >= input$to_year) return(NULL)
     
     material_spinner_show(session, "housing_plot")
     
-    Sys.sleep(2.5) # sleep to show spinner example 
+    Sys.sleep(2.5) # sleep to show spinner example longer 
     
     plot_data <- 
       HPI_AT_metro %>% 
