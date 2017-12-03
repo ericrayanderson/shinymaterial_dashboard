@@ -26,7 +26,7 @@ server <- function(input, output, session) {
              Year <= input$to_year) %>% 
       mutate(
         Housing_Price_Index_Plot =
-          round(((Housing_Price_Index / Housing_Price_Index[Year_Quarter_num == min(Year_Quarter_num)]) * 100) - 100,0)
+          round(((Housing_Price_Index / Housing_Price_Index[Year_Quarter_num == min(Year_Quarter_num)])) - 1,2)
       )
     
     plot_out <- 
@@ -34,16 +34,20 @@ server <- function(input, output, session) {
                             y = Housing_Price_Index_Plot)) +
       geom_line(size = 3, color = "#0000ff") +
       geom_label(data = plot_data[plot_data$Year_Quarter_num == max(plot_data$Year_Quarter_num), ],
-                 aes(label = paste0(Housing_Price_Index_Plot, "%")),
+                 aes(label = paste0(Housing_Price_Index_Plot * 100, "%")),
                  color = "#0000ff", size = 5) + 
+      scale_y_continuous(labels = scales::percent) +
       geom_hline(yintercept = 0, linetype = 2) +
       scale_x_continuous(
         breaks = sort(unique(plot_data$Year))
       ) +
-      labs(x = "Year", y = "Price Change (%)")
-      theme(text = element_text(size = 20),
+      # scale_y_continuous(labels = ) + 
+      labs(x = "Year", 
+           y = "") +
+      theme(text = element_text(size = 15),
             legend.position = "none",
-            axis.text.x=element_text(angle=60, hjust=1))
+            plot.margin = unit(c(0, 0, 0, -5), "mm"),
+            axis.text.x = element_text(angle=60, hjust=1))
     
     material_spinner_hide(session, "housing_plot")
     
