@@ -56,7 +56,7 @@ material_page(
       material_column(
         width = 12,
         material_card(
-          title = "Visualize",
+          title = "Housing Market Trend",
           plotOutput("housing_plot"),
           uiOutput("housing_plot_error")
         )
