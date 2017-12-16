@@ -1,6 +1,8 @@
 material_page(
   title = "",
   nav_bar_color = "blue",
+  nav_bar_fixed = TRUE,
+  # include_fonts = TRUE,
   # Place side-nav in the beginning of the UI
   material_side_nav(
     fixed = TRUE, 
