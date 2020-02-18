@@ -43,7 +43,8 @@ HPI_AT_metro <-
 git_refs <- function(){
   shiny::tagList(
     tags$a(target = "_blank",
-           href = "https://github.com/ericrayanderson/shinymaterial_dashboard/blob/master/ui.R#L1", h3("ui.R")),
+           href = "https://github.com/ericrayanderson/shinymaterial_dashboard/blob/master/ui.R#L1",
+           HTML('<h3>ui.R<i class="material-icons">open_in_new</i></h3>')),
     "Includes shinymaterial functions: ",
     tags$ul(style = "font-family:monospace; display:block",
             tags$li("material_side_nav()",
@@ -51,7 +52,8 @@ git_refs <- function(){
                     "material_side_nav_tab_content()")
     ),
     tags$a(target = "_blank",
-           href = "https://github.com/ericrayanderson/shinymaterial_dashboard/blob/master/server.R#L1", h3("server.R")),
+           href = "https://github.com/ericrayanderson/shinymaterial_dashboard/blob/master/server.R#L1",
+           HTML('<h3>server.R<i class="material-icons">open_in_new</i></h3>')),
     "Includes shinymaterial functions: ",
     tags$ul(style = "font-family:monospace; display:block",
             tags$li("material_spinner_show()",
