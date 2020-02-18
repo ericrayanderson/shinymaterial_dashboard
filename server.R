@@ -37,6 +37,12 @@ server <- function(input, output, session) {
                  aes(label = paste0(Housing_Price_Index_Plot * 100, "%")),
                  color = "#0000ff", size = 5) + 
       scale_y_continuous(labels = scales::percent) +
+      coord_cartesian(
+        ylim = c(
+          min(plot_data$Housing_Price_Index_Plot),
+          ceiling((max(plot_data$Housing_Price_Index_Plot) + .1) / .1) * .1
+        )
+      ) + 
       geom_hline(yintercept = 0, linetype = 2) +
       scale_x_continuous(
         breaks = sort(unique(plot_data$Year))
