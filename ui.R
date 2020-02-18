@@ -50,7 +50,7 @@ material_page(
             width = 3,
             material_slider(
               input_id = "to_year",
-              label = "To Year",
+              label = "Through Year",
               min_value = 1996,
               max_value = max(HPI_AT_metro$Year),
               initial_value = max(HPI_AT_metro$Year),

@@ -39,7 +39,7 @@ server <- function(input, output, session) {
       scale_y_continuous(labels = scales::percent) +
       coord_cartesian(
         ylim = c(
-          min(plot_data$Housing_Price_Index_Plot),
+          floor((min(plot_data$Housing_Price_Index_Plot) - .1) / .1) * .1,
           ceiling((max(plot_data$Housing_Price_Index_Plot) + .1) / .1) * .1
         )
       ) + 
